@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin page</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      li {
+        float: left;
+        border-right: 1px solid #bbb;
+      }
+
+      li:last-child {
+        border-right: none;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover:not(.active) {
+        background-color: #111;
+      }
+
+      .active {
+        background-color: #04aa6d;
+      }
+
+      /* ======================Form Design======================== */
+      .signup-container {
+        width: 100%;
+        max-width: 400px;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        margin: 0px auto;
+        margin-top: 12%;
+      }
+
+      .signup-container h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .signup-container input[type="text"],
+      .signup-container input[type="email"],
+      .signup-container input[type="password"],
+      .signup-container select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        outline: none;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+      }
+
+      .signup-container input:focus,
+      .signup-container select:focus {
+        border-color: #6a11cb;
+      }
+
+      .signup-container input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #6a11cb;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .signup-container input[type="submit"]:hover {
+        background-color: #2575fc;
+      }
+
+      @media (max-width: 600px) {
+        .signup-container {
+          padding: 20px;
+        }
+
+        .signup-container h1 {
+          font-size: 1.5rem;
+        }
+      }
+      table.table_cover {
+        margin: 0px auto;
+        width: 72%;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a class="active" href="/">Home</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+      <li style="float: right"><a href="/login">Login</a></li>
+      <li style="float: right"><a href="/signup">Sign Up</a></li>
+    </ul>
+    <table
+      class="table_cover"
+      border="1px solid #ccc"
+      cellspacing="0"
+      cellpadding="0"
+    >
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Role</th>
+        <th>Action</th>
+      </tr>
+      <% user.forEach(element => { %>
+      <tr>
+        <th><%=element._id %></th>
+        <th><%=element.name %></th>
+        <th><%=element.email %></th>
+        <th><%=element.mobile %></th> 
+        <th><%=element.role %></th>
+        <th>
+          <a href="/editUser/<%=element._id %>">Edit</a>
+          <br />
+          <a href="/api/deleteUser/<%=element._id %>">Delete</a>
+        </th>
+      </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>

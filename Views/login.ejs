@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login page</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      li {
+        float: left;
+        border-right: 1px solid #bbb;
+      }
+
+      li:last-child {
+        border-right: none;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover:not(.active) {
+        background-color: #111;
+      }
+
+      .active {
+        background-color: #04aa6d;
+      }
+
+      /* ============= form Design ================ */
+      .login-container {
+        width: 100%;
+        max-width: 400px;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        margin: 0px auto;
+        margin-top: 15%;
+      }
+
+      .login-container h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .login-container input[type="email"],
+      .login-container input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        outline: none;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+      }
+
+      .login-container input[type="email"]:focus,
+      .login-container input[type="password"]:focus {
+        border-color: #4facfe;
+      }
+
+      .login-container input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4facfe;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .login-container input[type="submit"]:hover {
+        background-color: #00c2fe;
+      }
+
+      @media (max-width: 600px) {
+        .login-container {
+          padding: 20px;
+        }
+
+        .login-container h1 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a class="active" href="/">Home</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+      <li style="float: right"><a href="/login">Login</a></li>
+      <li style="float: right"><a href="/signup">Sign Up</a></li>
+    </ul>
+   
+    <div class="login-container">
+      <h1>Login</h1>
+      <form action="/api/login" method="post">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter Email"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Enter Password"
+          required
+        />
+        <input type="submit" name="btn" id="btn" value="Login" />
+        <p><a href="/forgotpassword">Forgot password</a></p>
+      </form>
+    </div>
+  </body>
+</html>

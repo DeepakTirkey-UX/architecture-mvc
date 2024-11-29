@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit User</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      li {
+        float: left;
+        border-right: 1px solid #bbb;
+      }
+
+      li:last-child {
+        border-right: none;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover:not(.active) {
+        background-color: #111;
+      }
+
+      .active {
+        background-color: #04aa6d;
+      }
+
+
+      /* ======================Form Design======================== */
+      .signup-container {
+        width: 100%;
+        max-width: 400px;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        margin: 0px auto;
+        margin-top: 12%;
+      }
+
+      .signup-container h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .signup-container input[type="text"],
+      .signup-container input[type="email"],
+      .signup-container input[type="password"],
+      .signup-container select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        outline: none;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+      }
+
+      .signup-container input:focus,
+      .signup-container select:focus {
+        border-color: #6a11cb;
+      }
+
+      .signup-container input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #6a11cb;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .signup-container input[type="submit"]:hover {
+        background-color: #2575fc;
+      }
+
+      @media (max-width: 600px) {
+        .signup-container {
+          padding: 20px;
+        }
+
+        .signup-container h1 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a class="active" href="/">Home</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+      <li style="float: right"><a href="/login">Login</a></li>
+      <li style="float: right"><a href="/signup">Sign Up</a></li>
+    </ul>
+    <!-- <h1>Signup Form</h1>
+    <form action="/api/createUser" method="post">
+      <input type="text" name="name" id="name" placeholder="Enter your name" />
+      <br />
+      <input type="email" name="email" id="email" placeholder="Email id" />
+      <br />
+      <input type="text" name="mobile" id="mobile" placeholder="Enter mobile" />
+      <br />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Enter password"
+      />
+      <br />
+      <Select name="role" id="role">
+        <option hidden>Select your Role</option>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+      </Select>
+      <br />
+      <input type="submit" name="btn" id="btn" value="Signup" />
+    </form> -->
+
+    <div class="signup-container">
+      <h1>Edit Form</h1>
+      <form action="/api/updateUser/<%=user._id %>" method="post">
+        <input type="text" name="name" id="name" value="<%= user.name %>" />
+        <input type="email" name="email" id="email" value="<%= user.email %>" placeholder="Edit Email Id" required/>
+        <input type="text" name="mobile" id="mobile" value="<%= user.mobile %>" placeholder="Edit Mobile Number" required/>
+        <input type="submit" name="btn" id="btn" value="Update" />
+      </form>
+    </div>
+  </body>
+</html>
